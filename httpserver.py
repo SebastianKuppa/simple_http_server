@@ -2,7 +2,9 @@ from http.server import HTTPServer, BaseHTTPRequestHandler
 
 
 class Webserver(BaseHTTPRequestHandler):
-
+    """
+    Webserver class for accessing index.html, which is located in the same folder
+    """
     def do_GET(self):
         if self.path == '/':
             self.path = '/index.html'
@@ -19,3 +21,4 @@ class Webserver(BaseHTTPRequestHandler):
 
 httpd = HTTPServer(('localhost', 8080), Webserver)
 httpd.serve_forever()
+print('Server shutdown')
